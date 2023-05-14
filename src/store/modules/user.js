@@ -3,12 +3,16 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
   state: {
-    token: getToken()
+    token: getToken(),
+    username: ''
   },
 
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
+    },
+    SET_USERNAME: (state, username) => {
+      state.username = username
     }
   },
 
@@ -23,6 +27,7 @@ const user = {
         login(username, password, code, uuid).then(res => {
           setToken(res.data.token)
           commit('SET_TOKEN', res.data.token)
+          commit('SET_USERNAME', username)
           resolve()
         }).catch(error => {
           reject(error)

@@ -1,5 +1,6 @@
 import Login from '../views/Login'
 import Index from '../views/Index'
+import DeviceDetail from '../views/DeviceDetail'
 import VueRouter from 'vue-router'
 export const constantRoutes = [
   {
@@ -9,6 +10,10 @@ export const constantRoutes = [
   {
     path: '/index',
     component: Index
+  },
+  {
+    path: '/deviceDetail/:code/:deviceName',
+    component: DeviceDetail
   }
 ]
 
