@@ -15,3 +15,16 @@ export function getScreen() {
     }
   )
 }
+
+export function getDeviceDetails() {
+  return request(
+    {
+      url: "/getCoreInformation",
+      method: 'get',
+      // params: data,
+      headers:{
+        isToken: false
+      }
+    }
+  )
+}
