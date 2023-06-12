@@ -8,7 +8,7 @@ module.exports = defineConfig({
     //灵活代理；请求前缀为/api时，走下面的代理
     proxy: {
         '/api': {
-            target: 'http://localhost:5000',//代理服务器把请求转发给url(真正的后台服务器)
+            target: 'http://127.0.0.1:5000',//代理服务器把请求转发给url(真正的后台服务器)
             changeOrigin: true,//是否允许跨越
             //真正的服务器没有/api，所以要重写路径置空，否则找不到相应的路径
             pathRewrite: {

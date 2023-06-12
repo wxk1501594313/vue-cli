@@ -7,7 +7,7 @@
         element栅格是基础的24分栏，首先每行使用`<el-row>`标签标识，然后每行内的列使用`<el-col>`标识，
         至于每列整行的宽度比例，则使用`:span`属性进行设置。如需等分为三列 使用:span="8"
       -->
-      <el-cols
+      <el-col
         v-for="device in devices"
         :span="4">
         <el-card class="el-card">
@@ -25,12 +25,12 @@
               size="mini"
               icon="el-icon-search"
               plain
-              @click="goTarget('/deviceDetail/' + device.code + '/' + device.name)"
+              @click="goTarget('/deviceDetail/' + device.code + '/' + device.name, device.code)"
               >查看详情</el-button
             >
           </div>
         </el-card>
-      </el-cols>
+      </el-col>
     </el-row>
 
  
@@ -49,7 +49,8 @@ export default {
     };
   },
   methods: {
-    goTarget(herf) {
+    goTarget(herf, code) {
+      this.$store.dispatch("updateCode", code)
       this.$router.push({ path: herf }).catch(()=>{})
     },
   },
